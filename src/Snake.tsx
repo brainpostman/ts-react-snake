@@ -247,7 +247,7 @@ export default function Snake() {
                                                         key={`h${indexH} w${indexW}`}
                                                         className={`${styles.cellRaised} ${styles.snake}`}
                                                         style={{
-                                                            transition: `all ${tickRate}ms ease-in-out`,
+                                                            transition: `transform ${tickRate}ms ease-in-out`,
                                                         }}></div>
                                                 );
                                             case 2:
@@ -256,7 +256,7 @@ export default function Snake() {
                                                         key={`h${indexH} w${indexW}`}
                                                         className={`${styles.cellRaised} ${styles.food}`}
                                                         style={{
-                                                            transition: `all ${tickRate}ms ease-in-out`,
+                                                            transition: `transform ${tickRate}ms ease-in-out`,
                                                         }}></div>
                                                 );
                                             case 3:
