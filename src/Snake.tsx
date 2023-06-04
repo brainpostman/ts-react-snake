@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './Snake.module.scss';
-import { useAppSelector } from '../hooks/ReduxHooks';
+import { useAppSelector } from './hooks/ReduxHooks';
 import { useNavigate } from 'react-router-dom';
-import { deepCopy } from '../utils/game/deepCopy';
+import { deepCopy } from './utils/game/deepCopy';
 
 export default function Snake() {
     const { foodInitial, headInitial, tailInitial, gridInitial, wallThickness } = useAppSelector(
@@ -26,6 +26,10 @@ export default function Snake() {
     const [ticks, setTicks] = useState(0);
 
     const timeoutRef = useRef<number>(0);
+
+    useEffect(() => {
+        if (gridInitial.length === 0) navigate('/setup');
+    }, []);
 
     useEffect(() => {
         function handleKeyPress(event: KeyboardEvent) {

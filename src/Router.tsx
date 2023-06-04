@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import App from './App';
-import Snake from './components/Snake';
-import { useAppSelector } from './hooks/ReduxHooks';
+import Snake from './Snake';
 
 const AppRouter = () => {
     return (

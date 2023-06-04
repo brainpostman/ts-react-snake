@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './App.module.scss';
-import { useAppDispatch, useAppSelector } from './hooks/ReduxHooks';
+import { useAppDispatch } from './hooks/ReduxHooks';
 import { setInitialGameState } from './store/slices/initialGameState';
 import { useNavigate } from 'react-router-dom';
 
@@ -69,9 +69,9 @@ const App = () => {
         accessibleWidth: number,
         accessibleHeight: number
     ) {
-        const width = accessibleHeight + wallThickness * 2;
-        const height = accessibleWidth + wallThickness * 2;
-        const headInitialY = Math.floor(Math.round(height / 2) - 2);
+        const width = accessibleWidth + wallThickness;
+        const height = accessibleHeight + wallThickness;
+        const headInitialY = Math.floor(Math.round(height / 2));
         const headInitialX = Math.floor(Math.round(width / 3) - 1);
         const headInitial = [headInitialY, headInitialX];
         emptyGrid[headInitialY][headInitialX] = 1;
