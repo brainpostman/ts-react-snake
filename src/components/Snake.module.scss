@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-.grid-container {
+.gridContainer {
     display: grid;
     background-color: dimgray;
     perspective: 500px;
@@ -30,7 +30,7 @@
     box-shadow: 5px 5px 4px black;
 }
 
-.cell-raised {
+.cellRaised {
     z-index: 2;
     position: relative;
     height: 20px;
@@ -64,6 +64,42 @@
     filter: brightness(0.75);
 }
 
-.snake-container {
+.snakeContainer {
     margin: auto auto;
+}
+
+.menu {
+    border: none;
+    background: linear-gradient(to top left, cadetblue, lightslategrey);
+    margin: auto auto;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 5px 2px black;
+}
+
+@keyframes color_change {
+    0% {
+        background-color: red;
+    }
+    14% {
+        background-color: orange;
+    }
+    28% {
+        background-color: yellow;
+    }
+    42% {
+        background-color: green;
+    }
+    56% {
+        background-color: deepskyblue;
+    }
+    70% {
+        background-color: blue;
+    }
+    84% {
+        background-color: darkviolet;
+    }
+    100% {
+        background-color: red;
+    }
 }

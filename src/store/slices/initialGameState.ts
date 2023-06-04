@@ -6,21 +6,20 @@ const initialState: IInitialGameState = {
     tailInitial: [],
     foodInitial: [],
     gridInitial: [],
+    wallThickness: 2,
 };
 
 export const gameStateSlice = createSlice({
     name: 'initialGameState',
     initialState,
     reducers: {
-        setInitialGameState: (
-            { headInitial, tailInitial, foodInitial, gridInitial },
-            action: PayloadAction<IInitialGameState>
-        ) => {
+        setInitialGameState: (state, action: PayloadAction<IInitialGameState>) => {
             const newState = action.payload;
-            headInitial = newState.headInitial;
-            tailInitial = newState.tailInitial;
-            foodInitial = newState.foodInitial;
-            gridInitial = newState.gridInitial;
+            state.headInitial = newState.headInitial;
+            state.tailInitial = newState.tailInitial;
+            state.foodInitial = newState.foodInitial;
+            state.gridInitial = newState.gridInitial;
+            state.wallThickness = newState.wallThickness;
         },
     },
 });
