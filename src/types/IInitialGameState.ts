@@ -7,4 +7,5 @@ export interface IInitialGameState extends IInitialGridState {
     tailInitial: number[][];
     foodInitial: number[];
     wallThickness: number;
+    difficulty: number;
 }

@@ -7,6 +7,7 @@ const initialState: IInitialGameState = {
     foodInitial: [],
     gridInitial: [],
     wallThickness: 2,
+    difficulty: 0,
 };
 
 export const gameStateSlice = createSlice({
@@ -20,6 +21,7 @@ export const gameStateSlice = createSlice({
             state.foodInitial = newState.foodInitial;
             state.gridInitial = newState.gridInitial;
             state.wallThickness = newState.wallThickness;
+            state.difficulty = newState.difficulty;
         },
     },
 });

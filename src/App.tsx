@@ -13,6 +13,7 @@ const App = () => {
     const wallThickness = 2;
     const [gridWidth, setGridWidth] = useState(minWidth);
     const [gridHeight, setGridHeight] = useState(minHeight);
+    const [difficulty, setDifficulty] = useState('medium');
     const navigate = useNavigate();
 
     const handleGameStart = () => {
@@ -33,7 +34,9 @@ const App = () => {
             gridWidth,
             gridHeight
         );
-        dispatch(setInitialGameState(initialStateData));
+
+        const difficultyData = getDifficultyMs(difficulty);
+        dispatch(setInitialGameState({ ...initialStateData, difficulty: difficultyData }));
         navigate('/game');
     };
 
@@ -99,6 +102,19 @@ const App = () => {
         return { headInitial, tailInitial, foodInitial, gridInitial: emptyGrid, wallThickness };
     }
 
+    function getDifficultyMs(difficulty: string) {
+        switch (difficulty) {
+            case 'easy':
+                return 500;
+            case 'medium':
+                return 350;
+            case 'hard':
+                return 150;
+            default:
+                return 350;
+        }
+    }
+
     return (
         <div className={styles.App}>
             <div className={styles.menu}>
@@ -115,6 +131,39 @@ const App = () => {
                     value={gridHeight}
                     onChange={(e) => setGridHeight(+e.target.value)}
                 />
+                <p>Difficulty:</p>
+                <div className={styles.difficulty}>
+                    <label>
+                        <input
+                            type='radio'
+                            value='easy'
+                            className={styles.radio}
+                            checked={difficulty === 'easy'}
+                            onClick={() => setDifficulty('easy')}
+                        />
+                        Easy
+                    </label>
+                    <label>
+                        <input
+                            type='radio'
+                            value='medium'
+                            className={styles.radio}
+                            checked={difficulty === 'medium'}
+                            onClick={() => setDifficulty('medium')}
+                        />
+                        Medium
+                    </label>
+                    <label>
+                        <input
+                            type='radio'
+                            value='hard'
+                            className={styles.radio}
+                            checked={difficulty === 'hard'}
+                            onClick={() => setDifficulty('hard')}
+                        />
+                        Hard
+                    </label>
+                </div>
                 <button onClick={handleGameStart}>Continue</button>
             </div>
         </div>

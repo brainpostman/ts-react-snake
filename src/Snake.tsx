@@ -5,10 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { deepCopy } from './utils/game/deepCopy';
 
 export default function Snake() {
-    const { foodInitial, headInitial, tailInitial, gridInitial, wallThickness } = useAppSelector(
-        (state) => state.initialGameState
-    );
-    const tickRate = 350;
+    const { foodInitial, headInitial, tailInitial, gridInitial, wallThickness, difficulty } =
+        useAppSelector((state) => state.initialGameState);
+    const tickRate = difficulty;
     const navigate = useNavigate();
     const gridWidth = gridInitial[0]?.length;
     const gridHeight = gridInitial?.length;
@@ -246,25 +245,37 @@ export default function Snake() {
                                                 return (
                                                     <div
                                                         key={`h${indexH} w${indexW}`}
-                                                        className={`${styles.cellRaised} ${styles.snake}`}></div>
+                                                        className={`${styles.cellRaised} ${styles.snake}`}
+                                                        style={{
+                                                            transition: `all ${tickRate}ms ease-in-out`,
+                                                        }}></div>
                                                 );
                                             case 2:
                                                 return (
                                                     <div
                                                         key={`h${indexH} w${indexW}`}
-                                                        className={`${styles.cellRaised} ${styles.food}`}></div>
+                                                        className={`${styles.cellRaised} ${styles.food}`}
+                                                        style={{
+                                                            transition: `all ${tickRate}ms ease-in-out`,
+                                                        }}></div>
                                                 );
                                             case 3:
                                                 return (
                                                     <div
                                                         key={`h${indexH} w${indexW}`}
-                                                        className={`${styles.cellRaised} ${styles.wall}`}></div>
+                                                        className={`${styles.cellRaised} ${styles.wall}`}
+                                                        style={{
+                                                            transition: `all ${tickRate}ms ease-in-out`,
+                                                        }}></div>
                                                 );
                                             default:
                                                 return (
                                                     <div
                                                         key={`h${indexH} w${indexW}`}
-                                                        className={`${styles.cell} ${styles.empty}`}></div>
+                                                        className={`${styles.cell} ${styles.empty}`}
+                                                        style={{
+                                                            transition: `all ${tickRate}ms ease-in-out`,
+                                                        }}></div>
                                                 );
                                         }
                                     });

@@ -26,7 +26,6 @@
     width: 20px;
     transform-style: preserve-3d;
     transform: translateZ(-5px);
-    transition: transform 100ms ease-in-out;
     box-shadow: 5px 5px 4px black;
 }
 
@@ -37,7 +36,6 @@
     width: 20px;
     transform-style: preserve-3d;
     transform: translateZ(10px);
-    transition: transform 100ms ease-in-out;
     box-shadow: 5px 5px 4px black;
 }
 
