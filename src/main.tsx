@@ -9,7 +9,7 @@ import { store } from './store/index.ts';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter basename='react-snake'>
+            <BrowserRouter basename='ts-react-snake'>
                 <AppRouter />
             </BrowserRouter>
         </Provider>
